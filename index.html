@@ -2,44 +2,141 @@
 <html>
 <head>
   <title>Sick Ranchez</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+	.collapsible {
+	  background-color: #777;
+	  color: white;
+	  cursor: pointer;
+	  padding: 18px;
+	  width: 100%;
+	  border: none;
+	  text-align: left;
+	  outline: none;
+	  font-size: 15px;
+	}
+
+	.active, .collapsible:hover {
+	  background-color: #555;
+	}
+
+	.content {
+	  padding: 0 18px;
+	  display: none;
+	  overflow: hidden;
+	  background-color: #f1f1f1;
+	}
+	</style>
 </head>
 
 <body>
-  This is placeholder for my projects that I am proud of. Please visit my projects at:
-  <ol>    
-    <li> <a href="https://github.com/sickRanchez-c137/nios_NAND_interface">ONFI NAND Interface in NIOS Computer</a> </li>
-    <p align-text="centre">This project present interfacing code for ONFI complatible NAND flash memory.</p>
-    <li> <a href="https://github.com/sickRanchez-c137/InferenceInFPGA">Deep Inference in FPGA</a> </li>
-    <p align-text="centre">A Deep Neural Network-inference accelerator is created in hardware. The codes for hardware is written in System Verilog. The hardware module is interfaced with NIOS computer system, thus this hardware acts as a peripheral to the computer system. The driver code to interface the hardware is written in C. Speedup compard to software is 400 times</p>
-    <li> <a href="https://github.com/sickRanchez-c137/fileMute">File Mute Project</a> </li>
-    <p align-text="centre">File Mute project hides the information inside the file. The initial version V1 changes the magic number of file and changes the extension of file. Encryption and password based protection is planned next in V2. V3 will implement compression.</p>
-    <li> <a href="https://github.com/sickRanchez-c137/Chekov">Chekov</a> </li>
-    <p align-text="centre">Chekov is a writer much like <a href="https://en.wikipedia.org/wiki/Anton_Chekhov">Anton Chekov</a>. However, Chekov can learn to write stories from any other writers as well.</p>
-    <li> <a href="https://github.com/sickRanchez-c137/BreastCancerDataAnalysis">Breast Cancer Data Analysis</a> </li>
-    <p align-text="centre">This is a small attempt on playing around with multiple classification methods in SiKit Learn. The data set was obtained from Kaggle.com.</p>
-    <p aligh-text="centre"> Following are the different classification techniques used. </p>
-    <ol>
-      <li>Random Forest (Gini) </li>
-      <li>Random Forest (Entropy)</li>
-      <li>Multi Layer Perception (ReLU)</li>
-      <li>Multi Layer Perception (tanh)</li>
-      <li>Multi Layer Perception (sigmoid)</li>
-      <li>SVM NuSVC</li>
-      <li>SVM LinearSVC</li>
-      <li>SVM SVC Linear</li>
-      <li>SVM SVC RBF</li>
-      <li>Gaussian Naive Bayes</li>
-      <li> Decision Tree (Gini)</li>
-      <li>Decision Tree (Entropy)</li>
-      <li>Logistic Regression</li>
-      <li>KNN</li>
-    </ol>
-    <p>After analyzing the accuracy of all the models, the conclusion reached are:<br/>
-    <ul>
-      <li>KNN with p=2 and num of neighbour at 5% of total data sets gives 98.2% accuracy</li>
-      <li>Multi Layer Perceptron with tanh activation with 12 hidden layers gives 98.2% accuracy on Validation Set</li>
-    </ul>
-    </p>
-  </ol>
+  	<h1 align="center"> Placeholder for Some Projects </h1>
+	<p align="center">Prawar Poudel</p>
+
+	<hr>
+	<button type="button" class="collapsible"> <i>ONFI NAND Interface in NIOS Computer</i></button>
+	<div class="content">
+    	<p align-text="centre">
+    		This project present interfacing code for ONFI complatible NAND flash memory. The documentation can be found at <a href="https://sickranchez-c137.github.io/nios_NAND_interface/">this link</a>.
+    	</p>
+
+			<p>
+				ONFI standard defines NAND flash memory to be interfaced with parallel data lines. These data lines are 8-bit wide signals that also can be used to transfer command as well as the address.
+			</p>
+			<p>
+				Some of the other signals that are needed for interface are: <i>Address Latch Enable (ALE), Command Latch Enable (CLE), Read Enable (RE), Write Enable (WE), Ready/BUSY (R/B), Chip Enable (CE) and Write Protect (WP)</i>.
+			</p>
+			<p>
+				The packages can be 40-pin TSOP or 100-pin BGA for NAND flash memory. In our case the flash memory is MT29F64G08CBABA from Micron Technology which is a 40-pin TSOP flash memory. It is a MLC NAND flash memory in which each cell of flash memory can store 2-bits information.
+			</p>
+			<p>
+				On the microcontroller side, we are using NIOS computer as our microcontroller in DE1-SoC. The parallel port of the DE1-SoC is used to interface with the flash memory. Each parallel port is 32-bit wide, thus it is sufficient to use a single parallel port for our interfacing purpose. Since all the IO are memory mapped, the address of the data is indicated by <i>JUMPER_LOCATION</i> in the code, while the direction register is indicated by <i>JUMPER_DIRECTION</i>.
+			</p>
+			<p>
+				Other pins that are used for our case are indicated by the <i>mask</i> values in the header file. Please refer to the header file before porting the code for your purpose. You may need to change the code as necessary.
+			</p>
+    	<p>
+    		 The project can be found at <a href="https://github.com/sickRanchez-c137/nios_NAND_interface">this link</a>.
+    	</p>
+    </div>
+    <hr>
+
+	<button type="button" class="collapsible"> <i>Deep Inference in FPGA</i></button>
+	<div class="content">
+    	<p align-text="centre">
+    		A Deep Neural Network-inference accelerator is created in hardware. The codes for hardware is written in System Verilog. The hardware module is interfaced with NIOS computer system, thus this hardware acts as a peripheral to the computer system. The driver code to interface the hardware is written in C. Speedup compard to software is 400 times. The project can be found at <a href="https://github.com/sickRanchez-c137/InferenceInFPGA">this link</a>.
+    	</p>
+    </div>
+    <hr>
+
+	<button type="button" class="collapsible"> <i>File Mute Project</i></button>
+	<div class="content">
+    	<p align-text="centre">
+    		File Mute project hides the information inside the file. The initial version V1 changes the magic number of file and changes the extension of file. Encryption and password based protection is planned next in V2. V3 will implement compression. The project can be found at <a href="https://github.com/sickRanchez-c137/fileMute">this link</a>.
+    	</p>
+    </div>
+    <hr>
+
+	<button type="button" class="collapsible"> <i>Chekov</i></button>
+	<div class="content">
+    	<p align-text="centre">
+    		Chekov is a writer much like <a href="https://en.wikipedia.org/wiki/Anton_Chekhov">Anton Chekov</a>. However, Chekov can learn to write stories from any other writers as well. <a href="https://github.com/sickRanchez-c137/Chekov">this link</a>.
+    	</p>
+    </div>
+    <hr>
+
+	<button type="button" class="collapsible"> <i>Breast Cancer Data Analysis</i></button>
+	<div class="content">
+    	<p align-text="centre">
+    		This is a small attempt on playing around with multiple classification methods in SiKit Learn. The data set was obtained from Kaggle.com. The project can be found at <a href="https://github.com/sickRanchez-c137/BreastCancerDataAnalysis">this link</a>.
+    	</p>
+	    <p aligh-text="centre"> 
+	    	Following are the different classification techniques used. 
+	    </p>
+    	<p align-text="centre">
+    		This is a small attempt on playing around with multiple classification methods in SiKit Learn. The data set was obtained from Kaggle.com.
+    	</p>
+	    <ol>
+	      <li>Random Forest (Gini) </li>
+	      <li>Random Forest (Entropy)</li>
+	      <li>Multi Layer Perception (ReLU)</li>
+	      <li>Multi Layer Perception (tanh)</li>
+	      <li>Multi Layer Perception (sigmoid)</li>
+	      <li>SVM NuSVC</li>
+	      <li>SVM LinearSVC</li>
+	      <li>SVM SVC Linear</li>
+	      <li>SVM SVC RBF</li>
+	      <li>Gaussian Naive Bayes</li>
+	      <li> Decision Tree (Gini)</li>
+	      <li>Decision Tree (Entropy)</li>
+	      <li>Logistic Regression</li>
+	      <li>KNN</li>
+	    </ol>
+	    <p>After analyzing the accuracy of all the models, the conclusion reached are:<br/>
+	    <ul>
+	      <li>KNN with p=2 and num of neighbour at 5% of total data sets gives 98.2% accuracy</li>
+	      <li>Multi Layer Perceptron with tanh activation with 12 hidden layers gives 98.2% accuracy on Validation Set</li>
+	    </ul>
+	    </p>
+    </div>
+    <hr>
+
+<script>
+	var coll = document.getElementsByClassName("collapsible");
+	var i;
+
+	for (i = 0; i < coll.length; i++) {
+	  coll[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var content = this.nextElementSibling;
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+	    } else {
+	      content.style.display = "block";
+	    }
+	  });
+	}
+</script>
+
 </body>
 </html>
